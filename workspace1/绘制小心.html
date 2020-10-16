@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style type="text/css">
+         *{padding: 0;margin: 0;}       /*去掉内外边距 */
+        body{
+            width: 100vw;
+            height: 100vh;
+            background: #34495e;
+            display:flex;
+            justify-content:center; /*主轴居中*/
+            align-items: center;    /*交叉轴居中*/
+           
+        }
+        .heart{
+            width: 200px;
+            height: 200px;
+            background:#c0392b ;
+            transform: rotate(45deg) scale(.5);/*旋转45° 进行缩放*/
+            animation-name: xd;
+            animation-duration: 3s;
+            opacity: .5;
+            animation-iteration-count: infinite;
+        }
+        @keyframes xd {
+            25%{
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+            }
+            50%{
+                opacity: .5;
+                transform: rotate(45deg) scale(.5);
+            }
+            75%{
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+            }
+            100%{
+                opacity: .5;
+                transform: rotate(45deg) scale(.5);
+            }
+        }
+
+
+        .heart::before{
+            content: '';
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            background: #c0392b;
+            transform: translateX(-100px);/*X轴向左移动100px*/
+        }
+        .heart::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            background:#c0392b;
+            transform: translateY(-100px);/*y轴向上移动100px*/
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="heart"> </div>
+    </main>
+</body>
+</html>

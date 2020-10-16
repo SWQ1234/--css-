@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        body{
+            width: 100vw;
+            height: 100vh;
+            background: #34495e;
+            display: grid;
+        }
+
+        main{
+            width: 400px;
+            height: 200px;
+            align-self: center;
+            justify-self: center;
+            overflow: hidden;
+            position: relative;
+        }
+        section{
+            width: 1600px;
+            height: 200px;
+            display:grid;
+            grid-template: 1fr/repeat(4,400px);
+            animation: slide;
+            animation-duration: 4s;
+            animation-timing-function: steps(4,end);  /*steps(number_of_steps, direction)步进,定格动画*/
+            animation-iteration-count: infinite;
+        }
+        section:hover,
+        section:hover+ul::after{
+            animation-play-state: paused; /*指定暂停动画*/
+        }
+        div{
+           overflow: hidden; 
+        }
+        img{
+            width: 100%;
+        }
+        @keyframes slide {
+            to{
+                transform: translateX(-1600px);
+            }
+            
+        }
+        @keyframes slide1 {
+            to{
+                transform: translateX(200px);
+            }
+            
+        }
+        ul{
+            position: absolute;
+            width: 200px;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template: 1fr/repeat(4,1fr);
+            list-style: none;
+            justify-items: center;/*栅格中元素居中*/
+        }
+        ul::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: red;
+            z-index: -1;
+            animation-name: slide1;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(4,end);
+        }
+        li{
+            width: 30px;
+            height: 30px;
+            border-radius:50%;
+            background:rgba(0,0,0,.3);
+            color: white;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div><img src="img/1.jpg" alt=""></div>
+            <div><img src="img/2.jpg" alt=""></div>
+            <div><img src="img/3.jpg" alt=""></div>
+            <div><img src="img/4.jpg" alt=""></div>
+            
+        </section>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </main>
+</body>
+</html>

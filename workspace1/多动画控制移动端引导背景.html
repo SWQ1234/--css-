@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style type="text/css">
+         *{padding: 0;margin: 0;}       /*去掉内外边距 */
+        body{
+            background: #34495e;
+        }
+        main{
+            width: 100vw;
+            height: 100vh;
+            background: #34495e;
+            transform: scale(0);
+            animation-name:scale,background ,radius;
+            animation-duration: 2s,4s,1s;
+            animation-fill-mode: forwards;
+            display: flex;
+            justify-content: center;        /*z主轴居中*/
+            align-items: center;        /*交叉轴居中*/
+        }
+        main::after{        /*添加伪类*/
+            content: "你好Sir";         /*添加文字*/
+            font-size: 2em;       
+            color: white;        
+            opacity: 0;        /*起始透明度*/
+            animation-name: opacity;         /*应用动画*/
+            animation-duration: 2s;        /*执行时间*/
+            animation-delay: 4s;        /*延迟时间4s*/
+            animation-fill-mode: forwards;        /*填充模式*/
+        }
+        /*添加透明度动画*/
+        @keyframes opacity {
+            to{
+                opacity: .8;        /*最终透明度*/
+            }
+        }
+       
+               /*添加伸缩动画*/
+        @keyframes scale {
+           
+           25%{
+            transform: scale(0.5);
+
+           }
+           50%{
+            transform: scale(1) rotate(360deg);        /*反转360°*/
+           }
+           75%{
+            transform: scale(0.5);
+           }
+           
+                    
+            
+           to{
+            transform: scale(1);
+           }
+        }
+        /*定义动画的背景颜色*/
+        @keyframes background {
+           
+           25%{
+               background: #2ecc71;
+               
+
+           }
+           50%{
+               background: #3498db;
+
+               
+           }
+           75%{
+                background: #f1c40f;
+
+           }
+           100%{
+               background: #c0392b;
+           }
+        }
+        /*定义动画的圆角*/
+        @keyframes radius {
+           
+           25%{
+                border-radius: 50%;
+
+           }
+           50%{
+                border-radius: 0%;
+
+               
+           }
+           75%{
+                border-radius: 50%;
+
+           }
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+      
+    </main>
+</body>
+</html>
